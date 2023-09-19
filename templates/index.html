@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+    integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+    crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+    integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+    integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+    integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+    crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    html {
+      scroll-behavior: smooth
+    }
+
+    @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #fafafa;
+    }
+
+    p {
+      font-family: "Poppins", sans-serif;
+      font-size: 1.1em;
+      font-weight: 300;
+      line-height: 1.7em;
+      color: #999;
+    }
+
+    a,
+    a:hover,
+    a:focus {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .navbar {
+      padding: 15px 10px;
+      background: #fff;
+      border: none;
+      border-radius: 0;
+      margin-bottom: 40px;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar1 {
+      padding: 10px 10px;
+      background: #fff;
+      border: none;
+      border-radius: 0;
+      margin-bottom: 40px;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-btn {
+      box-shadow: none;
+      outline: none !important;
+      border: none;
+    }
+
+    .line {
+      width: 100%;
+      height: 1px;
+      border-bottom: 1px dashed #ddd;
+      margin: 40px 0;
+    }
+
+    .wrapper {
+      display: flex;
+      width: 100%;
+      align-items: stretch;
+    }
+
+    #sidebar {
+      min-width: 250px;
+      max-width: 250px;
+      background: #7386d5;
+      color: #fff;
+      transition: all 0.3s;
+    }
+
+    #sidebar.active {
+      margin-left: -250px;
+    }
+
+    #sidebar .sidebar-header {
+      padding: 20px;
+      background: #6d7fcc;
+    }
+
+    #sidebar ul.components {
+      padding: 20px 0;
+      border-bottom: 1px solid #47748b;
+    }
+
+    #sidebar ul p {
+      color: #fff;
+      padding: 10px;
+    }
+
+    #sidebar ul li a {
+      padding: 10px;
+      font-size: 1.1em;
+      display: block;
+    }
+
+    #sidebar ul li a:hover {
+      color: #7386d5;
+      background: #fff;
+    }
+
+    #sidebar ul li.active>a,
+    a[aria-expanded="true"] {
+      color: #fff;
+      background: #6d7fcc;
+    }
+
+    a[data-toggle="collapse"] {
+      position: relative;
+    }
+
+    .dropdown-toggle::after {
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+    }
+
+    ul ul a {
+      font-size: 0.9em !important;
+      padding-left: 30px !important;
+      background: #6d7fcc;
+    }
+
+    ul.CTAs {
+      padding: 20px;
+    }
+
+    ul.CTAs a {
+      text-align: center;
+      font-size: 0.9em !important;
+      display: block;
+      border-radius: 5px;
+      margin-bottom: 5px;
+    }
+
+    a.download {
+      background: #fff;
+      color: #7386d5;
+    }
+
+    a.article,
+    a.article:hover {
+      background: #6d7fcc !important;
+      color: #fff !important;
+    }
+
+    #content {
+      width: 100%;
+      padding: 20px;
+      min-height: 100vh;
+      transition: all 0.3s;
+    }
+
+    @media (max-width: 768px) {
+      #sidebar {
+        margin-left: -250px;
+      }
+
+      #sidebar.active {
+        margin-left: 0;
+      }
+
+      #sidebarCollapse span {
+        display: none;
+      }
+    }
+
+    .form button {
+      border: none;
+      background: none;
+      color: #8b8ba7;
+    }
+
+    .form {
+      --timing: 0.3s;
+      --width-of-input: 200px;
+      --height-of-input: 40px;
+      --border-height: 2px;
+      --input-bg: #fff;
+      --border-color: #2f2ee9;
+      --border-radius: 30px;
+      --after-border-radius: 1px;
+      position: relative;
+      width: var(--width-of-input);
+      height: var(--height-of-input);
+      display: flex;
+      align-items: center;
+      padding-inline: 0.8em;
+      border-radius: var(--border-radius);
+      transition: border-radius 0.5s ease;
+      background: var(--input-bg, #fff);
+    }
+
+    .input {
+      font-size: 0.9rem;
+      background-color: transparent;
+      width: 100%;
+      height: 100%;
+      padding-inline: 0.5em;
+      padding-block: 0.7em;
+      border: none;
+    }
+
+    .form:before {
+      content: "";
+      position: absolute;
+      background: var(--border-color);
+      transform: scaleX(0);
+      transform-origin: center;
+      width: 100%;
+      height: var(--border-height);
+      left: 0;
+      bottom: 0;
+      border-radius: 1px;
+      transition: transform var(--timing) ease;
+    }
+
+    /* Hover on Input */
+    .form:focus-within {
+      border-radius: var(--after-border-radius);
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    .form:focus-within:before {
+      transform: scale(1);
+    }
+
+    .reset {
+      border: none;
+      background: none;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    input:not(:placeholder-shown)~.reset {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .form svg {
+      width: 17px;
+      margin-top: 3px;
+
+    }
+
+    .message {
+      width: 82%;
+      padding: .5rem 1rem .5rem 1rem;
+    }
+
+    .send {
+      width: 15%;
+      border: #ddd 5px;
+      padding: .5rem 1rem .5rem 1rem;
+    }
+
+    .send:hover {
+      background-color: rgb(177, 177, 177);
+      border: #ddd 5px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0, 0, 0);
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+
+    .modal-content {
+      position: relative;
+      background-color: #fefefe;
+      margin: auto;
+      padding: 0;
+      border: 1px solid #888;
+      width: 80%;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      -webkit-animation-name: animatetop;
+      -webkit-animation-duration: 0.4s;
+      animation-name: animatetop;
+      animation-duration: 0.4s
+    }
+
+    @-webkit-keyframes animatetop {
+      from {
+        top: -300px;
+        opacity: 0
+      }
+
+      to {
+        top: 0;
+        opacity: 1
+      }
+    }
+
+    @keyframes animatetop {
+      from {
+        top: -300px;
+        opacity: 0
+      }
+
+      to {
+        top: 0;
+        opacity: 1
+      }
+    }
+
+    .close {
+      color: white;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .modal-header {
+      background-color: #6d7fcc;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    $(document).ready(function () {
+      $("#sidebarCollapse").on("click", function () {
+        $("#sidebar").toggleClass("active");
+
+      });
+    });
+
+  </script>
+  <div class="wrapper">
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <h3>Law Miner</h3>
+        <!-- <img src="logo.jpg" alt="logo" width="150px"> -->
+      </div>
+
+      <ul class="list-unstyled components">
+        <li>
+          <a href="#">Chat</a>
+        </li>
+        <li>
+          <a href="#" id="myBtn">About Us</a>
+        </li>
+        <li>
+          <a href="feedback.html">Feedback</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div id="content">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <button type="button" id="sidebarCollapse" class="btn btn-info">
+            <i class="fas fa-align-left"></i>
+          </button>
+          <h4 id=heading></h4>
+        </div>
+      </nav>
+      <div id="chat-history"></div>
+      <div class="navbar navbar1">
+        <div class="input-container">
+
+          <div class="underline"></div>
+        </div>
+        <input type="text" id="user-input" class="message" placeholder="Type your message..." autofocus>
+        <button id="send-button" class="send">Send</button>
+      </div>
+    </div>
+  </div>
+  <div id="myModal" class="modal">
+
+    <div class="modal-content">
+      <div class="modal-header" style="align-items: center;">
+        <h2>About Us</h2>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <ol>
+          <li>Ujjwal Sharma - Team Leader</li>
+          <li>Kaivan Koshti - Web Developer, UI/UX Designer</li>
+          <li>Devansh Thakkar</li>
+          <li>Vansh Mevada</li>
+          <li>Bhola Dhruvi</li>
+          <li>Chavan Nidhi</li>
+        </ol>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("myBtn");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function () {
+      modal.style.display = "block";
+    }
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+      const chatHistory = document.getElementById("chat-history");
+      const userInput = document.getElementById("user-input");
+      const sendButton = document.getElementById("send-button");
+
+      function appendMessage(text, sender) {
+        const messageDiv = document.createElement("div");
+        messageDiv.className = sender;
+        messageDiv.textContent = text;
+        chatHistory.appendChild(messageDiv);
+        chatHistory.appendChild(document.createElement('hr'))
+      }
+
+      sendButton.addEventListener("click", function () {
+        const userMessage = userInput.value;
+        if (userMessage.trim() !== "") {
+          appendMessage("You : " + userMessage, 'user');
+
+          fetch("/chat", {
+            method: "POST",
+            body: new URLSearchParams({ user_input: userMessage }),
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              const botResponse = data.response;
+              appendMessage(botResponse, "bot");
+
+            });
+
+          userInput.value = "";
+        }
+      });
+
+      userInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          sendButton.click();
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>
