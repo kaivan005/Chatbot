@@ -3,7 +3,6 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, sent_tokenize
 from nltk.stem import WordNetLemmatizer
-import string
 import json
 import random
 import re
@@ -11,8 +10,6 @@ import re
 nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
-nltk.download("book")
-
 
 app = Flask(__name__)
 
@@ -28,28 +25,33 @@ with open('responses.json', 'r') as file:
 
 def generate_response(user_input):
     user_words = preprocess_text(user_input)
-    user_input = user_words.lower()
-    response = "I\'m sorry, I don't understand that."
+    user_input = ' '.join(user_words)
+    response = "I'm sorry, I don't understand that."
+    best_match_score = 0
+
     for item in dataset:
         keywords = item['keywords']
         responses = item['responses']
+        
         for keyword in keywords:
             pattern = re.escape(keyword)
-            if re.search(pattern, user_input):
-                response = random.choice(responses)
-                return response
+            match = re.search(pattern, user_input)
+            if match:
+                match_score = len(match.group()) / len(keyword)
+                if match_score > best_match_score:
+                    best_match_score = match_score
+                    response = random.choice(responses)
+
     return response
 
 @app.route('/')
 def home():
     return render_template('index.html')
 
-# Define a route to handle user input
 @app.route('/chat', methods=['POST'])
 def chat():
     user_input = request.form['user_input']
     response = generate_response(user_input)
-    # user_input = "You : " + response
     return {'response': response}
 
 if __name__ == '__main__':
