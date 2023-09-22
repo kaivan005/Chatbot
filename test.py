@@ -25,23 +25,16 @@ with open('responses.json', 'r') as file:
 
 def generate_response(user_input):
     user_words = preprocess_text(user_input)
-    user_input = ' '.join(user_words)
-    response = "LawMiner: I'm sorry, I don't understand that."
-    best_match_score = 0
-
+    user_input = user_words.lower()
+    response = "I\'m sorry, I don't understand that."
     for item in dataset:
         keywords = item['keywords']
         responses = item['responses']
-         
         for keyword in keywords:
-            pattern = r'\w*' + re.escape(keyword) + r'\w*'
-            match = re.search(pattern, user_input)
-            if match:
-                match_score = len(match.group()) / len(keyword)
-                if match_score > best_match_score:
-                    best_match_score = match_score
-                    response = random.choice(responses)
-
+            pattern = re.escape(keyword)
+            if re.search(pattern, user_input):
+                response = random.choice(responses)
+                return response
     return response
 
 @app.route('/')
@@ -51,7 +44,7 @@ def home():
 @app.route('/chat', methods=['POST'])
 def chat():
     user_input = request.form['user_input']
-    response = "LawMiner : "+generate_response(user_input)
+    response = generate_response(user_input)
     return {'response': response}
 
 if __name__ == '__main__':
