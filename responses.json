@@ -4,7 +4,7 @@
         "responses": ["Hello!", "Hi there!", "Hey! How can I assist you today?"]
     },
     {
-        "keywords": ["your feeling" ,"whats up" ,"hows it going"],
+        "keywords": ["your feeling","feeling" ,"whats up" ,"hows it going"],
         "responses": ["I'm just a chatbot, but I'm here to help!", "I don't have feelings, but thanks for asking."]
     },
     {
@@ -12,7 +12,7 @@
         "responses": ["I am a chatbot designed to provide information and assist with your questions."]
     },
     {
-        "keywords": ["who created you" ,"who is your creator" ,"creator"],
+        "keywords": ["who created you" ,"who is your creator","created" ,"creator"],
         "responses": ["I was created by a developer as a project to demonstrate Natural Language Processing(NLP) capabilities."]
     },
 
@@ -41,10 +41,6 @@
         "responses": ["Sure, here's a joke: Why don't scientists trust atoms? Because they make up everything!"]
     },
     {
-        "keywords": ["how are you"],
-        "responses": ["I'm just a computer program, so I don't have feelings, but I'm here to help you!"]
-    },
-    {
         "keywords": ["what can you do" ,"capability" ,"ability"],
         "responses": ["The chatbot offers 24/7 support, providing information on mining rules, acts, circulars, and addressing land-related queries for stakeholders and customers.."]
     },
@@ -57,7 +53,7 @@
         "responses": ["Sorry for the issue, but you can report or provide feedback for the chatbot in the feedback section"]
     },
     {
-        "keywords": ["what is your favorite color"],
+        "keywords": ["what is your favorite color","favourite color"],
         "responses": ["I don't have preferences for colors, but I can provide information about colors and their significance if you're interested."]
     },
     {
