@@ -8,7 +8,7 @@
         "responses": ["I'm just a chatbot, but I'm here to help!", "I don't have feelings, but thanks for asking."]
     },
     {
-        "keywords": ["name" ,"hows it going"],
+        "keywords": ["name" ],
         "responses": ["I am a chatbot designed to provide information and assist with your questions."]
     },
     {
