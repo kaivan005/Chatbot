@@ -1,7 +1,7 @@
 [
     {
         "keywords": ["hello" ,"hi" ,"hey"],
-        "responses": ["Hello!", "Hi there!", "Hey! How can I assist you today?"]
+        "responses": ["Hello!Hope you're all well", "Hi there!", "Hey! How can I assist you today?"]
     },
     {
         "keywords": ["your feeling","feeling" ,"whats up" ,"hows it going"],
@@ -26,7 +26,7 @@
     },
     {
         "keywords": ["thank" ,"thank you" ,"appreciate it"],
-        "responses": ["You're welcome!", "No problem! If you have more questions, feel free to ask."]
+        "responses": ["You're welcome!", "No problem! If you have more questions, feel free to ask."It's my pleasure"]
     },
     {
         "keywords": ["help" ,"assistance" ,"support"],
