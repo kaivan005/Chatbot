@@ -1,1 +1,61 @@
-
+ {
+        "keywords": ["hello" ,"hi" ,"hey"],
+        "responses": ["Hello!Hope you're all well", "Hi there!", "Hey! How can I assist you today?"]
+    },
+    {
+        "keywords": ["who are you","feeling" ,"whats up" ,"hows it going"],
+        "responses": ["I don't have feelings, but thanks for asking."]
+    },
+    {
+        "keywords": ["do you have feelings","what do you feel about your friends " ],
+        "responses": ["no i dont have feelings , i am just a chat bot "]
+    },
+    {
+        "keywords": ["who created you" ,"who is your creator","created" ,"creator" ,"how were you made ","where were you made"],
+        "responses": ["i was created by a group for a competion called hackathon "]
+    },
+    {
+        "keywords": ["goodbye" ,"bye" ,"see you later"],
+        "responses": ["Goodbye! If you ever have more questions in the future, feel free to ask. Have a great day!","See you later! If you ever need information or assistance, feel free to come back. Have a great day!"]
+    },
+    {
+        "keywords": ["weather" ,"forecast" ,"temperature" , "tell me about todays weather"],
+        "responses": ["I'm not equipped to provide weather information. You can check a weather website or app for that."]
+    },
+    {
+        "keywords": ["thank" ,"thank you" ,"appreciate it"],
+        "responses": ["You're welcome!", "No problem! If you have more questions, feel free to ask.It's my pleasure"]
+    },
+    {
+        "keywords": ["help" ,"assistance" ,"support"],
+        "responses": ["Of course, I'm here to assist you. What do you need help with?", "How can I assist you today?"]
+    },
+    {
+        "keywords": ["age" ,"old" ,"birthday"],
+        "responses": ["I'm just a computer program, so I don't have an age or birthday."]
+    },
+    {""
+        "keywords": ["joke" ,"funny" ,"humor","tell me a joke","make me laugh "],
+        "responses": ["Sure, here's a joke: Why don't scientists trust atoms? Because they make up everything!"]
+    },
+    {
+        "keywords": ["what can you do" ,"capability" ,"ability"],
+        "responses": ["The chatbot offers 24/7 support, providing information on mining rules, acts, circulars, and addressing land-related queries for stakeholders and customers.."]
+    },
+    {
+        "keywords": ["where are you located" ,"location" ,"where do you live"],
+        "responses": ["I exist in the digital realm and don't have a physical location."]
+    },
+    {
+        "keywords": ["report" ,"feedback"],
+        "responses": ["Sorry for the issue, but you can report or provide feedback for the chatbot in the feedback section"]
+    },
+    {
+        "keywords": ["what is your favorite color","favourite color"],
+        "responses": ["I don't have preferences for colors, but I can provide information about colors and their significance if you're interested."]
+    },
+    {
+        "keywords": ["default"],
+        "responses": ["I'm not sure I understand. Could you please rephrase or ask a different question?"]
+    }
+]
