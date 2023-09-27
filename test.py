@@ -41,7 +41,7 @@ def generate_response(user_input):
                 if match_score > best_match_score:
                     best_match_score = match_score
                     response = random.choice(responses)
-
+ 
     return response
 
 @app.route('/')

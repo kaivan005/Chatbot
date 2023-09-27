@@ -366,6 +366,17 @@
       padding-bottom: 16px;
       color: white;
     }
+    .bot,.user
+    {
+      padding-left: 20px;
+    }
+    pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    }
   </style>
 </head>
 
@@ -407,8 +418,8 @@
           </button>
           <h4 id=heading></h4>
         </div>
-      </nav>
-      <div id="chat-history"></div>
+      </nav><pre>
+      <div id="chat-history"></div></pre>
       <div class="navbar navbar1">
         <div class="input-container">
 
@@ -466,7 +477,7 @@
         messageDiv.className = sender;
         messageDiv.textContent = text;
         chatHistory.appendChild(messageDiv);
-        chatHistory.appendChild(document.createElement('hr'))
+        chatHistory.appendChild(document.createElement('hr'));
       }
 
       sendButton.addEventListener("click", function () {
@@ -477,7 +488,7 @@
           fetch("/chat", {
             method: "POST",
             body: new URLSearchParams({ user_input: userMessage }),
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            // headers: { "Content-Type": "application/x-www-form-urlencoded" },
           })
             .then((response) => response.json())
             .then((data) => {
@@ -496,8 +507,7 @@
         }
       });
     });
-  </script>
-
+</script>
 </body>
 
 </html>
