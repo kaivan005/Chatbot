@@ -4,10 +4,6 @@
         "responses": ["Hello!", "Hi there!", "Hey! How can I assist you today?"]
     },
     {
-        "keywords": ["i am {name}"],
-        "responses": ["Hi {name} How can I assist you today?"]
-    },
-    {
         "keywords": ["your feeling","feeling" ,"whats up" ,"hows it going"],
         "responses": ["I'm just a chatbot, but I'm here to help!", "I don't have feelings, but thanks for asking."]
     },
