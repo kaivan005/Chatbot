@@ -36,7 +36,7 @@ def generate_response(user_input):
         for keyword in keywords:
             pattern = r'\w*' + re.escape(keyword) + r'\w*'
             match = re.search(pattern, user_input)
-            if match:
+            if match:  
                 match_score = len(match.group()) / len(keyword)
                 if match_score > best_match_score:
                     best_match_score = match_score
