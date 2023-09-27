@@ -34,7 +34,7 @@
         "keywords": ["age" ,"old" ,"birthday"],
         "responses": ["I'm just a computer program, so I don't have an age or birthday."]
     },
-    {""
+    {
         "keywords": ["joke" ,"funny" ,"humor","tell me a joke","make me laugh "],
         "responses": ["Sure, here's a joke: Why don't scientists trust atoms? Because they make up everything!"]
     },
