@@ -61,14 +61,6 @@ def generate_response(user_input):
                         break
     return response
 
-def spell_check(sentence):
-    spell = SpellChecker()
-    words = sentence.split()
-    misspelled = spell.unknown(words)
-    corrected_words = [spell.correction(word) if word in misspelled else word for word in words]
-    corrected_sentence = " ".join(corrected_words)
-    return corrected_sentence
-
 @app.route('/')
 def home():
     return render_template('index.html')
