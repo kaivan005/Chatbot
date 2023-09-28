@@ -6,7 +6,6 @@ from nltk.stem import WordNetLemmatizer
 import json
 import random
 import re
-
 from spellchecker import SpellChecker
 
 nltk.download('punkt')
