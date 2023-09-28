@@ -368,9 +368,11 @@
     }
     .bot,.user
     {
-      padding-left: 20px;
+      padding-left: 80px;
+      text-indent: -70px;
     }
     pre {
+    font-family: "Poppins", sans-serif;
     white-space: pre-wrap;       /* Since CSS 2.1 */
     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
     white-space: -pre-wrap;      /* Opera 4-6 */
@@ -493,7 +495,7 @@
             .then((response) => response.json())
             .then((data) => {
               const botResponse = data.response;
-              appendMessage(botResponse, 'bot');
+              appendMessage("LawMiner : " + botResponse, 'bot');
 
             });
 

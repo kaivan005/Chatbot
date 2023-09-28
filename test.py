@@ -7,6 +7,8 @@ import json
 import random
 import re
 
+from spellchecker import SpellChecker
+
 nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
@@ -22,6 +24,8 @@ def preprocess_text(text):
 
 with open('responses.json', 'r') as file:
     dataset = json.load(file)
+
+spell_checker = SpellChecker()
 
 def generate_response(user_input):
     user_words = preprocess_text(user_input)
@@ -41,8 +45,29 @@ def generate_response(user_input):
                 if match_score > best_match_score:
                     best_match_score = match_score
                     response = random.choice(responses)
- 
+
+    if response == "LawMiner: I'm sorry, I don't understand that.":
+        misspelled_words = spell_checker.unknown(user_words)
+        if misspelled_words:
+            suggestions = [spell_checker.correction(word) for word in misspelled_words]
+            suggestion_text = ', '.join(suggestions)
+            response = f"LawMiner: I couldn't understand your input. Did you mean: {suggestion_text}?"
+            for suggestion in suggestions:
+                for item in dataset:
+                    keywords = item['keywords']
+                    responses = item['responses']
+                    if suggestion in keywords:
+                        response = random.choice(responses)
+                        break
     return response
+
+def spell_check(sentence):
+    spell = SpellChecker()
+    words = sentence.split()
+    misspelled = spell.unknown(words)
+    corrected_words = [spell.correction(word) if word in misspelled else word for word in words]
+    corrected_sentence = " ".join(corrected_words)
+    return corrected_sentence
 
 @app.route('/')
 def home():
@@ -51,7 +76,7 @@ def home():
 @app.route('/chat', methods=['POST'])
 def chat():
     user_input = request.form['user_input']
-    response = "LawMiner : "+generate_response(user_input)
+    response = generate_response(user_input)
     return {'response': response}
 
 if __name__ == '__main__':
