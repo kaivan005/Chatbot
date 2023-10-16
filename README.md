@@ -23,6 +23,20 @@ Our chatbot is equipped with an extensive knowledge base that includes informati
 - Colliery Control Rules, 2004
 - The Coal Mines Regulations, 2017
 - The Payment of Wages (Mines) Rules, 1956
+- The Coal Bearing Areas (Acquisition and Development) Act, 1957
+- The Coal Mines (Special Provisions) Act, 2015
+- The Mines and Minerals (Development and Regulation) Act, 1957
+- The Mines Act, 1952
+- The Coal Mines (Conservation and Development) Act, 1974
+- The Environmental Impact Assessment (EIA) Notification of India, 1994
+- The Forest (Conservation) Act, 1980
+- The Water (Prevention and Control of Pollution) Act, 1974
+- The Air (Prevention and Control of Pollution) Act, 1981
+- The National Mineral Policy (NMP),2019
+- Mines and Minerals (Development and Regulation) Act, 1957
+- The Mineral (Auction) Rule, 2015
+- National Mineral Exploration Policy (NMEP), 2016
+- The District Mineral Foundation (DMF) Rules, 2015
 
 ### 3. 24/7 Availability
 
