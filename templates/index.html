@@ -61,7 +61,9 @@
       margin-bottom: 40px;
       box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
     }
-
+    h3{
+      text-transform: capitalize;
+    }
     .navbar1 {
       padding: 10px 10px;
       background: #fff;
@@ -91,6 +93,7 @@
     }
 
     #sidebar {
+      
       min-width: 250px;
       max-width: 250px;
       background: #7386d5;
@@ -105,11 +108,16 @@
     #sidebar .sidebar-header {
       padding: 20px;
       background: #6d7fcc;
+      position: fixed;
+      width: 250px;
+      text-transform: capitalize;
     }
 
     #sidebar ul.components {
       padding: 20px 0;
-      border-bottom: 1px solid #47748b;
+      position: fixed;
+      padding-top: 85px;
+      width: 250px;  
     }
 
     #sidebar ul p {
@@ -135,7 +143,7 @@
     }
 
     a[data-toggle="collapse"] {
-      position: relative;
+      position: fixed;
     }
 
     .dropdown-toggle::after {
@@ -246,7 +254,6 @@
       transition: transform var(--timing) ease;
     }
 
-    /* Hover on Input */
     .form:focus-within {
       border-radius: var(--after-border-radius);
     }
@@ -274,7 +281,6 @@
     .form svg {
       width: 17px;
       margin-top: 3px;
-
     }
 
     .message {
@@ -373,11 +379,11 @@
     }
     pre {
     font-family: "Poppins", sans-serif;
-    white-space: pre-wrap;       /* Since CSS 2.1 */
-    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-    white-space: -pre-wrap;      /* Opera 4-6 */
-    white-space: -o-pre-wrap;    /* Opera 7 */
-    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    white-space: pre-wrap;      
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap; 
+    white-space: -o-pre-wrap;   
+    word-wrap: break-word; 
     }
   </style>
 </head>
@@ -441,7 +447,7 @@
       </div>
       <div class="modal-body">
         <ol>
-          <li>Kaivan Koshti - Team Leader, Web Developer, UI/UX Designer</li>
+          <li>Kaivan Koshti - Team Leader, Web Developer, UI Designer</li>
           <li>Hetvi Patel</li>
           <li>Manas Mehta</li>
           <li>Aryan Hundani</li>
@@ -486,17 +492,17 @@
         const userMessage = userInput.value;
         if (userMessage.trim() !== "") {
           appendMessage("You : " + userMessage, 'user');
+          window.scrollTo(0, document.body.scrollHeight);
 
           fetch("/chat", {
             method: "POST",
             body: new URLSearchParams({ user_input: userMessage }),
-            // headers: { "Content-Type": "application/x-www-form-urlencoded" },
           })
             .then((response) => response.json())
             .then((data) => {
               const botResponse = data.response;
               appendMessage("LawMiner : " + botResponse, 'bot');
-
+              window.scrollTo(0, document.body.scrollHeight);
             });
 
           userInput.value = "";

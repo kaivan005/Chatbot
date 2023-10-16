@@ -1,9 +1,9 @@
 from flask import Flask, request, render_template
+import json
 import nltk
-from nltk.corpus import stopwords
+from nltk.corpus import stopwords,wordnet
 from nltk.tokenize import word_tokenize, sent_tokenize
 from nltk.stem import WordNetLemmatizer
-import json
 import random
 import re
 from spellchecker import SpellChecker
@@ -14,6 +14,7 @@ nltk.download('wordnet')
 
 app = Flask(__name__)
 
+
 def preprocess_text(text):
     words = word_tokenize(text.lower())
     words = [word for word in words if word.isalnum() and word not in stopwords.words('english')]
@@ -21,7 +22,7 @@ def preprocess_text(text):
     words = [lemmatizer.lemmatize(word) for word in words]
     return words
 
-with open('responses.json', 'r') as file:
+with open('responses.json', 'r',encoding = 'utf-8') as file:
     dataset = json.load(file)
 
 spell_checker = SpellChecker()
@@ -29,7 +30,7 @@ spell_checker = SpellChecker()
 def generate_response(user_input):
     user_words = preprocess_text(user_input)
     user_input = ' '.join(user_words)
-    response = "LawMiner: I'm sorry, I don't understand that."
+    response = "I'm sorry, I don't understand that."
     best_match_score = 0
 
     for item in dataset:
@@ -45,7 +46,7 @@ def generate_response(user_input):
                     best_match_score = match_score
                     response = random.choice(responses)
 
-    if response == "LawMiner: I'm sorry, I don't understand that.":
+    if response == "I'm sorry, I don't understand that.":
         misspelled_words = spell_checker.unknown(user_words)
         if misspelled_words:
             suggestions = [spell_checker.correction(word) for word in misspelled_words]
@@ -58,6 +59,8 @@ def generate_response(user_input):
                     if suggestion in keywords:
                         response = random.choice(responses)
                         break
+
+
     return response
 
 @app.route('/')
