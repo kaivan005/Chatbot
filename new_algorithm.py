@@ -89,7 +89,7 @@ def generate_response(user_input):
                         break
 
     if response == "I'm sorry, I don't understand that.":
-        rephrased_user_input = rephrase_sentence(user_input)
+        rephrased_user_input =  list(set(rephrase_sentence(user_input)))
         lenth_input = len(rephrased_user_input)
         i = 0
         while i < lenth_input and response == "I'm sorry, I don't understand that.":

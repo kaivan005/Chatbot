@@ -29,7 +29,7 @@ def rephrase_sentence(input_sentence):
 
     return result
 
-result = rephrase_text("foundation structure district mineral")
+result = list(set(rephrase_text("foundation structure district mineral")))
 print(len(result))
 for i in range(0,len(result),1):
     print(result[i])
