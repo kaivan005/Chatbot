@@ -13,7 +13,7 @@ nltk.download('stopwords')
 nltk.download('wordnet')
 
 app = Flask(__name__)
-
+# 
 
 def preprocess_text(text):
     words = word_tokenize(text.lower())
